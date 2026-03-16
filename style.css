@@ -1,125 +1,82 @@
-
-/* RESET GLOBAL */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* DESIGN SYSTEM ESFUMAÇANTE */
+:root {
+    --primary-color: #d32f2f; /* Vermelho vibrante para apetite */
+    --success-green: #4caf50;
+    --bg-light: #f7f7f7;
+    --text-main: #2d2d2d;
 }
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* CINZA QUASE BRANCO */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
 }
 
-/* 2. ESTRUTURA DO PORTFÓLIO (DESKTOP POR PADRÃO) */
-.container {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    
-    /* O SEGREDO DO CARTÃO ESTÁ AQUI: */
-    max-width: 900px;         /* Limita a largura para não expandir na tela toda */
-    width: 100%;             /* Garante que seja responsivo em telas menores */
-    background-color: #504f4f !important; /* Cinza grafite escuro */
-    padding: 40px;           /* Espaço interno para o texto não encostar na borda */
-    border-radius: 15px;     /* Arredonda os cantos para parecer um cartão */
-    border: 1px solid #1d1d1d; /* Uma borda sutil ajuda a definir o limite */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para dar profundidade */
-}
-.profile-section {flex-shrink: 0;} /* Garante que a foto não seja espremida */
-
-.info-section {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    /* O respiro agora vem do container pai, então aqui fica limpo */
+.banner-container {
+    position: relative;
+    height: 1000px;
+    width: 100%;
+    height: 60vh; 
+    overflow: hidden;
+    background-color: #1a1a1a;
 }
 
-/* --- CORES ESPECÍFICAS PARA O INDEX (Fundo Escuro) --- */
-.info-section h1 { color: #ffffff; }
-.info-section h2 { color: #cccccc; }
-.info-section p { color: #eeeeee; }
-.info-section .professional-path { color: #dddddd; }
-.info-section nav a { color: #ffffff; }
-
-.profile-img {
-    width: 250px;
-    height: auto;
-    border-radius: 10px;
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
 }
 
-/* 3. ELEMENTOS INTERNOS (ESTILOS GERAIS) */
-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    gap: 25px;
+.logo-holder {
+    position: absolute;
+    bottom: -40px;
+    left: 40px; /* Alinhado à esquerda como no iFood */
+    display: block; /* Garante que a imagem se comporte como bloco */
 }
 
-nav a {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 13px;
-    text-transform: uppercase;
-    transition: 0.3s;
+.logo-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background: #000;
 }
 
-nav a:hover {
-    opacity: 0.7;
-    border-bottom: 2px solid;
-}
-
-h1 { margin: 0; font-size: 2.5rem; color: inherit; }
-h2 { margin: 10px 0; font-weight: normal; font-size: 1.0rem; color: inherit; }
-p { line-height: 1.6; color: inherit; }
-
-.seneca-quote {
-    border-left: 4px solid #ffffff;
-    padding-left: 20px;
-    margin: 20px 0;
-    font-style: italic;
-    color: #cccccc;
-}
-
-.seneca-quote cite {
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #ffffff;
+    /* Adicionamos um pequeno padding para a logo não encostar na borda branca */
+    padding: 5px;
 }
 
-/* 4. AJUSTE PARA CELULAR (MOBILE) */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column !important; /* Inverte para pilha no celular */
-        flex-wrap: wrap !important;      /* Permite a quebra de linha no celular */
-        text-align: center;
-        gap: 20px;
-    }
+.business-info {
+    padding: 50px 40px 20px;
+    background: #fff;
+    margin-top: 0; /* Garante que o branco grude na imagem */
+    border-top: 1px solid #eee; /* Leve separação */
+}
 
-    .info-section {
-        padding-left: 0; 
-        align-items: center;
-        max-width: 100%; /* No celular, o texto ocupa a largura toda */
-    }
+.business-info h1 {
+    margin: 0;
+    font-size: 24px;
+}
 
-    nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-    
-    .profile-img {
-        width: 200px;
-    }
+.description {
+    color: #666;
+    margin: 5px 0 15px;
+}
+
+.badge-open {
+    background: var(--success-green);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
 }
