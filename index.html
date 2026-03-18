@@ -36,7 +36,7 @@
         
         <div class="business-info">
             <h1>Defumados Esfumaçantes</h1>
-            <p class="description">Hot Dog Artesanal Saudável em Feira de Santana</p>
+            <p class="description">Lanches Artesanais Saudáveis</p>
             <div class="status-row">
                 <span class="badge-open">Aberto agora</span>
                 <span class="delivery-info">• Entrega em 30-45 min</span>
@@ -60,11 +60,36 @@
 
     <main>
         <section class="menu-container">
-        <h2 class="section-title">Nossos Defumados 🔥</h2>
+        <h2 class="section-title">🔥Nossos Lanches Defumados - Hot Dog🔥</h2>
         <div id="vitrine-produtos" class="products-grid"></div>
     </section>
         </main>
-    <script src="script.js"></script>     
+    <script src="script.js"></script>
+<div id="modal-produto" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+        <span class="close-modal" onclick="fecharModal()">&times;</span>
+        
+        <div class="modal-header">
+            <img id="modal-img" src="" alt="Imagem do Produto">
+        </div>
+
+        <div class="modal-body">
+    <h2 id="modal-titulo"></h2>
+    <p id="modal-descricao-longa"></p>
+    
+    <div class="modal-footer">
+        <span id="modal-preco" class="modal-price"></span>
+        
+        <a href="https://www.ifood.com.br/delivery/feira-de-santana-ba/hot-dog-artesanal-saudavel-pedra-do-descanso/99a81878-2a19-40a3-b73a-acab3bf3602f" 
+           target="_blank" 
+           class="btn-pedir" 
+           style="text-decoration: none;">
+           Pedir no iFood
+        </a>
+    </div>
+</div>
+    </div>
+</div>     
 </body>
 
 </html>

@@ -22,8 +22,8 @@ const cardapio = [
         descricaoLonga: `Produzido Artesanalmente:
                         - Salsicha de Frango (≅ 100g, 22cm), curada por 7 dias;
                         - Molho Cream Cheese Artesanal: Iorgute natural e especiarias;
-                        - Parmesão: Queijo parmesão ralado;
-                        - Molho Pesto Artesanal: Manjericão, alho, azeite e parmesão;
+                        - Parmesão: Queijo parmesao ralado;
+                        - Molho Pesto Artesanal: Manjericão, alho, azeite e parmesao;
                         - Geleia de Tomate: Tomate, açucar, maçã, cravo e canela;
                         - Pão tipo brioche artesanal: 130g;
                         - Ketchup artesanal: Tomate e goiaba;
@@ -40,9 +40,8 @@ const cardapio = [
         descricaoLonga: `Produzido Artesanalmente:
                         - Salsicha de Frango (≅ 100g, 22cm), curada por 7 dias;
                         - Molho Cream Cheese Artesanal: Iorgute natural e especiarias;
-                        - Parmesão: Queijo parmesão ralado;
+                        - Parmesão: Queijo parmesao ralado;
                         - Bacon Artesanal: Farofa de bacon artesanal;
-                        - Geleia de Tomate: Tomate, açucar, maçã, cravo e canela;
                         - Pão tipo brioche artesanal: 130g;
                         - Ketchup artesanal: Tomate e goiaba;
                         - Mostarda artesanal: Mostarda e mel.
@@ -58,6 +57,7 @@ const cardapio = [
         descricaoLonga: `Produzido Artesanalmente:
                         - Salsicha de Frango (≅ 100g, 22cm), curada por 7 dias;
                         - Molho Cream Cheese Artesanal: Iorgute natural e especiarias;
+                        - Parmesão: Queijo parmesao ralado;
                         - Bacon Artesanal: Farofa de bacon artesanal;
                         - Geleia de Tomate: Tomate, açucar, maçã, cravo e canela;
                         - Pão tipo brioche artesanal: 130g;
@@ -75,6 +75,7 @@ const cardapio = [
         descricaoLonga: `Produzido Artesanalmente:
                         - Salsicha de Frango (≅ 100g, 22cm), curada por 7 dias;
                         - Molho Cream Cheese Artesanal: Iorgute natural e especiarias;
+                        - Parmesão: Queijo parmesao ralado;
                         - Gorgonzola: Queijo gorgonzola;
                         - Bacon Artesanal: Farofa de bacon artesanal;
                         - Geleia de Tomate: Tomate, açucar, maçã, cravo e canela;
@@ -179,6 +180,35 @@ window.onload = function() {
 // Função de fechar o popup
 function closePopup() {
     document.getElementById('popup-vip').style.display = 'none';
+};
+
+// Função para abrir o modal e preencher com os dados do produto
+function abrirDetalhes(id) {
+    // 1. Procura o produto no seu Array 'cardapio' pelo ID
+    const produto = cardapio.find(p => p.id === id);
+    
+    if (produto) {
+        // 2. Preenche os elementos do Modal com os dados do produto
+        document.getElementById('modal-img').src = produto.imagem;
+        document.getElementById('modal-titulo').innerText = produto.nome;
+        document.getElementById('modal-descricao-longa').innerText = produto.descricaoLonga;
+        document.getElementById('modal-preco').innerText = `R$ ${produto.preco}`;
+        
+        // 3. Mostra o modal (muda de 'none' para 'flex')
+        const modal = document.getElementById('modal-produto');
+        modal.style.display = 'flex';
+    }
 }
 
-;
+// Função para fechar o modal
+function fecharModal() {
+    document.getElementById('modal-produto').style.display = 'none';
+}
+
+// Bônus: Fechar o modal se o usuário clicar fora da caixa branca
+window.onclick = function(event) {
+    const modal = document.getElementById('modal-produto');
+    if (event.target == modal) {
+        fecharModal();
+    }
+};
