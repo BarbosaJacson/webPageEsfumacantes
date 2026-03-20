@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <title>Defumados Esfumacantes</title>
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1499951471310119'); // O seu ID entra aqui automaticamente
-      fbq('track', 'PageView');
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1499951471310119');
+        fbq('track', 'PageView');
     </script>
     <noscript>
-      <img height="1" width="1" style="display:none" 
-           src="https://www.facebook.com/tr?id=1499951471310119&ev=PageView&noscript=1"/>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1499951471310119&ev=PageView&noscript=1" />
     </noscript>
-    <title>Defumados Esfumacantes</title>  
-</head> 
+</head>
 
 <body>
-<header class="main-header">
+    <header class="main-header">
         <div class="banner-container">
-            <img src="./assets/images/pesto.jpg" alt="Esfumaçante Banner" class="banner-img">
+            <img src="assets/images/pesto.jpg" alt="Esfumaçante Banner" class="banner-img">
         </div>
 
         <div class="logo-holder">
             <div class="logo-circle">
-                <img src="assets/images/logoOrigin.png" alt="Esfumaçante Logo Intense Brasa" class="logo-img">
-                </div>
+                <img src="assets/images/logoOrigin.png" alt="Esfumaçante Logo" class="logo-img">
             </div>
-        
+        </div>
+
         <div class="business-info">
             <h1>Defumados Esfumaçantes</h1>
             <p class="description">Lanches Artesanais Saudáveis</p>
@@ -43,53 +45,49 @@
             </div>
         </div>
 
-    <div id="popup-vip" class="popup-overlay">
-    <div class="popup-content">
-        <span class="close-btn" onclick="closePopup()">&times;</span>
-        <div class="popup-header">
-            <h2>🌭 Bateu aquela fome?🌭</h2>
-            <p>Clique no botão abaixo para ver nosso cardápio completo no iFood e aproveitar as promoções de hoje!</p>
+        <div id="popup-vip" class="popup-overlay">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <div class="popup-header">
+                    <h2>🌭 Bateu aquela fome? 🌭</h2>
+                    <p>Clique no botão abaixo para ver nosso cardápio no iFood e aproveitar as promoções!</p>
+                </div>
+                <a href="https://www.ifood.com.br/delivery/feira-de-santana-ba/hot-dog-artesanal-saudavel-pedra-do-descanso/99a81878-2a19-40a3-b73a-acab3bf3602f"
+                    target="_blank" class="btn-ifood">
+                    VER NO CARDÁPIO DO IFOOD
+                </a>
+            </div>
         </div>
-        <a href="https://www.ifood.com.br/delivery/feira-de-santana-ba/hot-dog-artesanal-saudavel-pedra-do-descanso/99a81878-2a19-40a3-b73a-acab3bf3602f" target="_blank" class="btn-ifood">
-            VER NO CARDÁPIO DO IFOOD
-        </a>
-    </div>
-</div>
-</div>
     </header>
 
     <main>
         <section class="menu-container">
-        <h2 class="section-title">🔥Nossos Lanches Defumados - Hot Dog🔥</h2>
-        <div id="vitrine-produtos" class="products-grid"></div>
-    </section>
-        </main>
-    <script src="script.js"></script>
-<div id="modal-produto" class="modal-overlay" style="display: none;">
-    <div class="modal-card">
-        <span class="close-modal" onclick="fecharModal()">&times;</span>
-        
-        <div class="modal-header">
-            <img id="modal-img" src="" alt="Imagem do Produto">
-        </div>
+            <h2 class="section-title">🔥 Nossos Lanches Defumados - Hot Dog 🔥</h2>
+            <div id="vitrine-produtos" class="products-grid"></div>
+        </section>
+    </main>
 
-        <div class="modal-body">
-    <h2 id="modal-titulo"></h2>
-    <p id="modal-descricaoLonga"></p>
-    
-    <div class="modal-footer">
-        <span id="modal-preco" class="modal-price"></span>
-        
-        <a href="https://www.ifood.com.br/delivery/feira-de-santana-ba/hot-dog-artesanal-saudavel-pedra-do-descanso/99a81878-2a19-40a3-b73a-acab3bf3602f" 
-           target="_blank" 
-           class="btn-pedir" 
-           style="text-decoration: none;">
-           Pedir no iFood
-        </a>
+    <div id="modal-produto" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <span class="close-modal" onclick="fecharModal()">&times;</span>
+            <div class="modal-header">
+                <img id="modal-img" src="" alt="Imagem do Produto">
+            </div>
+            <div class="modal-body">
+                <h2 id="modal-titulo"></h2>
+                <p id="modal-descricaoLonga"></p>
+                <div class="modal-footer">
+                    <span id="modal-preco" class="modal-price"></span>
+                    <a href="https://www.ifood.com.br/delivery/feira-de-santana-ba/hot-dog-artesanal-saudavel-pedra-do-descanso/99a81878-2a19-40a3-b73a-acab3bf3602f"
+                        target="_blank" class="btn-pedir" style="text-decoration: none;">
+                        Pedir no iFood
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-    </div>
-</div>     
+
+    <script src="script.js"></script>
 </body>
 
 </html>
