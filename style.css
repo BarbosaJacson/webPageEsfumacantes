@@ -12,38 +12,43 @@ body {
     background-color: var(--bg-light);
     color: var(--text-main);
 }
-
-.banner-container {
-    position: relative;
-    height: 1000px;
+.main-header {
+    position: relative; /* O pai agora é o header inteiro */
     width: 100%;
-    height: 60vh; 
-    overflow: hidden;
-    background-color: #1a1a1a;
+}
+.banner-container {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden; /* Isso garante que a FOTO não vaze, mas... */
 }
 
 .banner-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 50%;
+    object-position: 50% 70%; /* Ajusta o foco da imagem para a esquerda */
+    
 }
 
 .logo-holder {
     position: absolute;
-    bottom: -40px;
+    bottom: 110px;
     left: 40px; /* Alinhado à esquerda como no iFood */
-    display: block; /* Garante que a imagem se comporte como bloco */
+    z-index: 999;
 }
 
 .logo-circle {
-    width: 100px;
-    height: 100px;
+    width: 200px; /* Tamanho que você escolheu */
+    height: 200px;
     border-radius: 50%;
-    border: 4px solid #fff;
+    border: 4px solid #252525;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     overflow: hidden;
     background: #000;
+    /* Flexbox ajuda a centralizar a imagem dentro do círculo se ela não for quadrada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo-img {
@@ -53,6 +58,95 @@ body {
     display: block;
     /* Adicionamos um pequeno padding para a logo não encostar na borda branca */
     padding: 5px;
+    transform: scale(1.1); /* Leve zoom para destacar a logo */
+    
+}
+/* Estilo do Pop-up Overlay */
+.popup-overlay {
+    display: none; /* Começa escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Fundo escuro semi-transparente */
+    z-index: 2000; /* Acima do z-index da logo */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Caixa do Pop-up */
+.popup-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-bottom: 8px solid #d32f2f; /* Cor da sua marca */
+}
+
+.popup-header h2 {
+    color: #d32f2f;
+    margin-bottom: 10px;
+}
+
+/* Inputs e Botão */
+.popup-content input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.popup-content button {
+    width: 100%;
+    padding: 18px;
+    background: #4caf50; /* Verde WhatsApp */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.popup-content button:hover {
+    background: #45a049;
+}
+
+/* Botão de Fechar */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+}
+.btn-ifood {
+    display: block;
+    background-color: #ea1d2c; /* Vermelho iFood */
+    color: #ffffff !important; /* FORÇA o texto a ser Branco */
+    padding: 18px;
+    border-radius: 10px;
+    text-decoration: none; /* Remove o sublinhado azul horroroso */
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: transform 0.2s;
+    text-align: center; /* Garante que o texto fique no meio */
+}
+
+/* DICA DE ANALISTA: Garanta que o link não mude de cor ao ser clicado */
+.btn-ifood:visited, .btn-ifood:active, .btn-ifood:focus {
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .business-info {
@@ -79,4 +173,243 @@ body {
     border-radius: 4px;
     font-size: 12px;
     font-weight: bold;
+}
+
+/* --- VITRINE DE PRODUTOS --- */
+
+/* Centraliza o título e dá um espaçamento */
+.section-title {
+    text-align: center;
+    margin: 40px 0 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Define o Grid (Grade) Responsiva - o motor do layout */
+.products-grid {
+    display: grid;
+    /* Ajustamos para um mínimo de 250px. 
+       O '1fr' fará com que eles cresçam igualmente para preencher o espaço lateral. */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; 
+    justify-content: center; 
+    padding: 40px 5%; /* Usar porcentagem nas laterais ajuda na harmonia visual */
+    
+    /* A MUDANÇA CHAVE: 
+       Aumentamos para 1400px ou usamos '95%' para ocupar quase a tela toda. */
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
+/* Para garantir que o card não fique "gigante" se houver apenas um na linha */
+.product-card {
+    /* --- Estética e Cores --- */
+    background: #fff;
+    border-radius: 12px; /* Aqui volta o boleado */
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    
+    /* --- Comportamento --- */
+    overflow: hidden; /* Corta a imagem para respeitar o boleado acima */
+    transition: transform 0.3s ease;
+    
+    /* --- Tamanho e Alinhamento (O que você já tinha) --- */
+    width: 100%;
+    max-width: 350px;
+    justify-self: center;
+}
+
+/* Efeito ao passar o mouse: o card "levita" */
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Container que "prende" a imagem e limita sua altura */
+.product-img-container {
+    width: 100%;
+    height: 180px; /* Altura fixa para manter todos os cards iguais */
+    overflow: hidden; /* Corta o excesso da imagem */
+    
+}
+
+/* A Imagem em si: O ponto crítico da sua correção */
+/* 2. O Ajuste da Imagem (Para ela não ficar achatada) */
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem esticar */
+    object-position: center; 
+}
+
+/* Área de texto do card */
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: #333;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    height: 40px; /* Força todas as descrições a terem o mesmo tamanho */
+    overflow: hidden; /* Esconde o texto extra se houver */
+}
+
+/* Rodapé com Preço e Botão */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-weight: bold;
+    color: #4caf50; /* Verde iFood para o preço */
+    font-size: 18px;
+}
+
+/* O Botão de "+" */
+.add-btn {
+    background: #ea1d2c; /* Vermelho iFood */
+    color: #fff;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; /* Faz o botão ficar redondo */
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(234, 29, 44, 0.3);
+}
+/* 1. O Fundo Escurecido */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fundo preto transparente */
+    backdrop-filter: blur(5px);    /* Efeito de desfoque no fundo */
+    display: flex;                 /* Para centralizar o card */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;                 /* Garante que fique em cima de TUDO */
+}
+
+/* 2. O Card do Modal */
+.modal-card {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease-out; /* Efeito de entrada suave */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. Imagem e Botão de Fechar */
+#modal-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+/* 4. Corpo do Texto */
+.modal-body {
+    padding: 25px;
+}
+
+#modal-descricaoLonga {
+    white-space: pre-line; /* CRITICAL: Respeita as quebras de linha do seu JS */
+    color: #555;
+    line-height: 1.6;
+    margin: 15px 0;
+    font-size: 15px;
+}
+
+/* 5. Preço e Botão Final */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.modal-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2d2d2d;
+}
+
+.btn-pedir {
+    background: #ea1d2c; /* Cor do iFood */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-pedir:hover {
+    background: #c21824;
+}
+/* Ajustes para Celulares (Telas até 600px) */
+@media (max-width: 600px) {
+    .modal-card {
+        width: 95%; /* Ocupa quase toda a largura */
+        border-radius: 15px; /* Quinas um pouco menos arredondadas */
+    }
+
+    #modal-img {
+        height: 180px; /* Imagem menor para sobrar espaço para o texto */
+    }
+
+    .modal-body {
+        padding: 15px; /* Menos espaço nas bordas para ganhar área de leitura */
+    }
+
+    .modal-info h2 {
+        font-size: 20px; /* Título um pouco menor */
+    }
+
+    #modal-descricaoLonga {
+        font-size: 14px; /* Texto legível, mas compacto */
+    }
+
+    .modal-footer {
+        flex-direction: column; /* Preço em cima, Botão embaixo */
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .btn-pedir {
+        width: 100%; /* Botão ocupa toda a largura no celular - mais fácil de clicar com o polegar */
+        text-align: center;
+    }
 }
