@@ -61,6 +61,11 @@ window.closePopup = function() {
     const popup = document.getElementById('popup-vip');
     if (popup) popup.style.display = 'none';
 };
+// Exemplo de como inserir no JavaScript do modal
+const zapButton = `<a href="https://wa.me/5575999240161" class="btn-zap-modal">
+                    <img src="assets/images/whatsapp-icon.png" style="width: 30px;">
+                   </a>`;
+// Adicione isso ao lado do botão de fechar ou do preço
 
 // 5. INICIALIZAÇÃO ÚNICA
 window.onload = function() {
