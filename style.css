@@ -269,7 +269,7 @@ body {
 
 .price {
     font-weight: bold;
-    color: #4caf50; /* Verde iFood para o preço */
+    color: #010c01; 
     font-size: 18px;
 }
 
@@ -465,4 +465,27 @@ body {
     display: block;
     text-align: center;
     margin-bottom: 10px;
+}
+
+/* Botão do Zap dentro do Modal de detalhes */
+.btn-zap-modal {
+    background-color: #25d366;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: background 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px; /* Espaço para o botão do iFood */
+}
+
+.btn-zap-modal img {
+    width: 25px; /* Menor para caber ao lado do preço */
+    height: 25px;
+}
+
+.btn-zap-modal:hover {
+    background-color: #128c7e;
 }
