@@ -414,28 +414,55 @@ body {
     }
 }
 
+/* Container do Botão */
 .whatsapp-btn {
     position: fixed;
-    bottom: 20px;    /* 20px de distância do fundo */
-    right: 20px;     /* 20px de distância da direita */
-    width: 60px;
-    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;  /* Tamanho da 'bolinha' */
+    height: 60px; /* Tamanho da 'bolinha' */
     background-color: #25d366;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    z-index: 1000;   /* Garante que ele fique NA FRENTE de tudo */
-    transition: transform 0.3s ease; /* Suaviza o efeito que a Angela ensinou */
+    z-index: 1000;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
 }
 
+/* O ajuste para a imagem não explodir */
 .whatsapp-btn img {
-    width: 35px;
+    width: 35px;  /* Tamanho do ícone lá dentro */
+    height: 35px; /* Tamanho do ícone lá dentro */
+    object-fit: contain;
 }
 
-/* Efeito de destaque ao passar o mouse (Hover) */
 .whatsapp-btn:hover {
-    transform: scale(1.1); /* Aumenta 10% de tamanho */
+    transform: scale(1.1);
+}
+
+/* Estilo para o botão do Zap no Pop-up */
+.btn-whatsapp-popup {
+    display: block;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px; /* Espaço entre o botão do iFood e o do Zap */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp-popup:hover {
     background-color: #128c7e;
+}
+
+/* Garante que o botão do iFood também ocupe a largura toda se necessário */
+.btn-ifood {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
 }

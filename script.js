@@ -48,6 +48,7 @@ window.abrirDetalhes = function(id) {
     }
     const modal = document.getElementById('modal-produto');
     if (modal) modal.style.display = 'flex';
+    
 };
 
 // 4. FUNÇÕES DE FECHAMENTO
@@ -87,7 +88,3 @@ function rastrearCliqueIfood() {
         console.log("Evento de clique no iFood enviado ao Pixel!");
     }
 }
-
-// Adicione o evento aos seus botões (dentro da função onde você cria os cards ou no HTML)
-// Exemplo de como ficaria a tag <a> do iFood:
-// <a href="seu-link" onclick="rastrearCliqueIfood()" target="_blank">Pedir no iFood</a>
