@@ -76,3 +76,18 @@ window.onclick = function(event) {
     if (event.target == modal) fecharModal();
 };
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fecharModal(); });
+
+// Função para rastrear o clique no iFood
+function rastrearCliqueIfood() {
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact', {
+            content_name: 'Botão iFood',
+            content_category: 'Conversão de Saída'
+        });
+        console.log("Evento de clique no iFood enviado ao Pixel!");
+    }
+}
+
+// Adicione o evento aos seus botões (dentro da função onde você cria os cards ou no HTML)
+// Exemplo de como ficaria a tag <a> do iFood:
+// <a href="seu-link" onclick="rastrearCliqueIfood()" target="_blank">Pedir no iFood</a>
