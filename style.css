@@ -469,23 +469,25 @@ body {
 
 /* Botão do Zap dentro do Modal de detalhes */
 .btn-zap-modal {
-    background-color: #25d366;
-    border-radius: 8px;
+    background-color: transparent; /* ❌ Removemos o fundo verde da div */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    transition: background 0.3s;
     cursor: pointer;
     text-decoration: none;
-    margin-right: 10px; /* Espaço para o botão do iFood */
+    margin-right: 15px; /* Espaço maior para não grudar no iFood */
+    padding: 0; /* Remove padding que possa atrapalhar o alinhamento */
+    transition: transform 0.2s ease;
 }
 
 .btn-zap-modal img {
-    width: 25px; /* Menor para caber ao lado do preço */
-    height: 25px;
+    width: 45px;  /* ✅ Aumentamos para alinhar com o iFood */
+    height: 45px; /* Mantemos quadrado */
+    object-fit: contain; /* Garante que não corte */
+    border-radius: 50%; /* Faz a bolinha ficar redonda */
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2); /* Adiciona profundidade */
 }
 
 .btn-zap-modal:hover {
-    background-color: #128c7e;
+    transform: scale(1.1); /* Dá um leve zoom para destacar */
 }
