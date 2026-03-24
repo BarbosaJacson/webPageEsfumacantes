@@ -422,7 +422,7 @@ body {
     width: 60px;  /* Tamanho da 'bolinha' */
     height: 60px; /* Tamanho da 'bolinha' */
     background-color: #25d366;
-    border-radius: 50%;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
