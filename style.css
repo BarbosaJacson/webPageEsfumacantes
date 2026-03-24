@@ -486,11 +486,12 @@ body {
 }
 
 .btn-zap-modal img {
-    width: 20px;  /* Diminuímos o ícone para ele caber dentro do botão com texto */
+    width: 20px;   /* Tamanho ideal para ícone de botão */
     height: 20px;
     object-fit: contain;
+    margin-right: 0; /* O gap do pai cuida do espaço */
+    box-shadow: none !important; /* Garante que não tenha aquela sombra que te incomodou */
     border-radius: 0;
-    box-shadow: none;
 }
 
 .btn-pedir:hover, .btn-zap-modal:hover {
