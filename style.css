@@ -371,6 +371,7 @@ body {
     border: none;
     padding: 12px 25px;
     border-radius: 8px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s;
@@ -473,6 +474,7 @@ body {
     color: #fff;
     padding: 12px 25px; /* MESMO PADDING DO IFOOD */
     border-radius: 8px; /* MESMO ARREDONDAMENTO */
+    font-size: 16px;
     font-weight: bold;
     text-decoration: none;
     display: flex;

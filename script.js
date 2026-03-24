@@ -61,7 +61,7 @@ window.abrirDetalhes = function(id) {
         const zapHtml = `
     <a href="${linkZap}" target="_blank" class="btn-zap-modal">
         <img src="assets/images/whatsapp-icon.png" alt="Zap">
-        PEDIR NO ZAP
+        Pedir no Waths
     </a>`;
         modalFooter.insertAdjacentHTML('beforeend', zapHtml);
     } else {
