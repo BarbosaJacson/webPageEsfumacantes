@@ -469,27 +469,29 @@ body {
 
 /* Botão do Zap dentro do Modal de detalhes */
 .btn-zap-modal {
-    background-color: #25d366; /* ✅ Forçamos o verde do Zap */
+    background-color: #25d366; 
+    color: #fff;
+    padding: 12px 25px; /* MESMO PADDING DO IFOOD */
+    border-radius: 8px; /* MESMO ARREDONDAMENTO */
+    font-weight: bold;
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    width: 45px;  /* ✅ Definimos o tamanho na DIV pai */
-    height: 45px;
-    text-decoration: none;
-    margin-right: 15px; /* Espaço maior para não grudar no iFood */
-    padding: 0; /* Remove padding que possa atrapalhar o alinhamento */
-    transition: transform 0.2s ease;
+    gap: 8px; /* Espaço entre o ícone e o texto que vamos colocar */
+    transition: background 0.3s, transform 0.2s;
+    border: none;
 }
 
 .btn-zap-modal img {
-    width: 45px;  /* ✅ Aumentamos para alinhar com o iFood */
-    height: 45px; /* Mantemos quadrado */
-    object-fit: contain; /* Garante que não corte */
-    border-radius: 0; /* Faz a bolinha ficar redonda */
-    box-shadow: none; /* Adiciona profundidade */
+    width: 20px;  /* Diminuímos o ícone para ele caber dentro do botão com texto */
+    height: 20px;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: none;
 }
 
-.btn-zap-modal:hover {
-    transform: scale(1.1); /* Dá um leve zoom para destacar */
+.btn-pedir:hover, .btn-zap-modal:hover {
+    transform: scale(1.05);
+    filter: brightness(0.9);
 }

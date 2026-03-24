@@ -59,9 +59,10 @@ window.abrirDetalhes = function(id) {
     const btnExistente = document.querySelector('.btn-zap-modal');
     if (!btnExistente) {
         const zapHtml = `
-            <a href="${linkZap}" target="_blank" class="btn-zap-modal">
-                <img src="assets/images/whatsapp-icon.png" alt="WhatsApp" style="width: 30px;">
-            </a>`;
+    <a href="${linkZap}" target="_blank" class="btn-zap-modal">
+        <img src="assets/images/whatsapp-icon.png" alt="Zap">
+        PEDIR NO ZAP
+    </a>`;
         modalFooter.insertAdjacentHTML('beforeend', zapHtml);
     } else {
         btnExistente.href = linkZap;
