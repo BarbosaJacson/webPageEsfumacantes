@@ -63,7 +63,6 @@ body {
 }
 /* Estilo do Pop-up Overlay */
 .popup-overlay {
-    display: none; /* Começa escondido */
     position: fixed;
     top: 0;
     left: 0;
@@ -77,47 +76,10 @@ body {
 
 /* Caixa do Pop-up */
 .popup-content {
-    background: #fff;
-    padding: 40px;
-    border-radius: 20px;
     text-align: center;
     max-width: 450px;
     width: 90%;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border-bottom: 8px solid #d32f2f; /* Cor da sua marca */
-}
-
-.popup-header h2 {
-    color: #d32f2f;
-    margin-bottom: 10px;
-}
-
-/* Inputs e Botão */
-.popup-content input {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-.popup-content button {
-    width: 100%;
-    padding: 18px;
-    background: #4caf50; /* Verde WhatsApp */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.popup-content button:hover {
-    background: #45a049;
 }
 
 /* Botão de Fechar */
@@ -142,7 +104,6 @@ body {
     transition: transform 0.2s;
     text-align: center; /* Garante que o texto fique no meio */
 }
-
 
 .btn-ifood:visited, .btn-ifood:active, .btn-ifood:focus {
     color: #ffffff;
@@ -417,24 +378,6 @@ body {
 
 .whatsapp-btn:hover {
     transform: scale(1.1);
-}
-
-/* Estilo para o botão do Zap no Pop-up */
-.btn-whatsapp-popup {
-    display: block;
-    background-color: #25d366;
-    color: white;
-    text-decoration: none;
-    padding: 15px;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 10px; /* Espaço entre o botão do iFood e o do Zap */
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-.btn-whatsapp-popup:hover {
-    background-color: #128c7e;
 }
 
 /* Garante que o botão do iFood também ocupe a largura toda se necessário */
