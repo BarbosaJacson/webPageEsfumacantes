@@ -91,24 +91,6 @@ body {
     cursor: pointer;
     color: #999;
 }
-.btn-ifood {
-    display: block;
-    background-color: #ea1d2c; /* Vermelho iFood */
-    color: #ffffff !important; /* FORÇA o texto a ser Branco */
-    padding: 18px;
-    border-radius: 10px;
-    text-decoration: none; /* Remove o sublinhado azul horroroso */
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 20px;
-    transition: transform 0.2s;
-    text-align: center; /* Garante que o texto fique no meio */
-}
-
-.btn-ifood:visited, .btn-ifood:active, .btn-ifood:focus {
-    color: #ffffff;
-    text-decoration: none;
-}
 
 .business-info {
     padding: 50px 40px 20px;
@@ -313,10 +295,6 @@ body {
     color: #2d2d2d;
 }
 
-
-.btn-pedir:hover {
-    background: #c21824;
-}
 /* Ajustes para Celulares (Telas até 600px) */
 @media (max-width: 600px) {
     .modal-card {
@@ -346,10 +324,6 @@ body {
         align-items: flex-start;
     }
 
-    .btn-pedir {
-        width: 100%; /* Botão ocupa toda a largura no celular - mais fácil de clicar com o polegar */
-        text-align: center;
-    }
 }
 
 /* Container do Botão */
@@ -378,13 +352,6 @@ body {
 
 .whatsapp-btn:hover {
     transform: scale(1.1);
-}
-
-/* Garante que o botão do iFood também ocupe a largura toda se necessário */
-.btn-ifood {
-    display: block;
-    text-align: center;
-    margin-bottom: 10px;
 }
 
 .btn-zap-modal img {
