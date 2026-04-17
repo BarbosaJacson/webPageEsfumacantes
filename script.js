@@ -54,7 +54,7 @@ window.abrirDetalhes = function(id) {
     const textoZap = encodeURIComponent(`Olá! Gostaria de fazer o pedido do lanche: ${produto.nome}.`);
     const linkZap = `https://wa.me/5575999240161?text=${textoZap}`;
 
-    const modalFooter = document.querySelector('.modal-footer');
+    const modalFooter = document.getElementById('modal-footer');
     
     // Injeta o botão apenas se ele não existir, evitando duplicação
     const btnExistente = document.querySelector('.btn-zap-modal');
@@ -90,12 +90,6 @@ window.onload = function() {
         const popup = document.getElementById('popup-vip');
         if (popup) popup.style.display = 'flex';
     }, 5000);
-};
-
-// 6. EVENTOS GLOBAIS (Clique fora e Tecla Esc)
-window.onclick = function(event) {
-    const modal = document.getElementById('modal-produto');
-    if (event.target == modal) fecharModal();
 };
 
 document.addEventListener('keydown', (e) => { 
