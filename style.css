@@ -143,7 +143,7 @@ body {
     text-align: center; /* Garante que o texto fique no meio */
 }
 
-/* DICA DE ANALISTA: Garanta que o link não mude de cor ao ser clicado */
+
 .btn-ifood:visited, .btn-ifood:active, .btn-ifood:focus {
     color: #ffffff;
     text-decoration: none;
@@ -273,19 +273,6 @@ body {
     font-size: 18px;
 }
 
-/* O Botão de "+" */
-.add-btn {
-    background: #ea1d2c; /* Vermelho iFood */
-    color: #fff;
-    border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%; /* Faz o botão ficar redondo */
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(234, 29, 44, 0.3);
-}
 /* 1. O Fundo Escurecido */
 .modal-overlay {
     position: fixed;
@@ -365,17 +352,6 @@ body {
     color: #2d2d2d;
 }
 
-.btn-pedir {
-    background: #ea1d2c; /* Cor do iFood */
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
 
 .btn-pedir:hover {
     background: #c21824;
@@ -466,23 +442,6 @@ body {
     display: block;
     text-align: center;
     margin-bottom: 10px;
-}
-
-/* Botão do Zap dentro do Modal de detalhes */
-.btn-zap-modal {
-    background-color: #25d366; 
-    color: #fff;
-    padding: 12px 25px; /* MESMO PADDING DO IFOOD */
-    border-radius: 8px; /* MESMO ARREDONDAMENTO */
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* Espaço entre o ícone e o texto que vamos colocar */
-    transition: background 0.3s, transform 0.2s;
-    border: none;
 }
 
 .btn-zap-modal img {

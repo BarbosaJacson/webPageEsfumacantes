@@ -26,7 +26,7 @@ function renderizarCardapio() {
                         <p>${produto.descricao}</p>
                         <div class="product-footer">
                             <span class="price">R$ ${Number(produto.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
-                            <button class="add-btn" onclick="abrirDetalhes(${produto.id})">+</button>
+                            <button class="btn btn-danger rounded-circle fw-bold" onclick="abrirDetalhes(${produto.id})">+</button>
                         </div>
                     </div>
                 </div>`;
@@ -59,8 +59,8 @@ window.abrirDetalhes = function(id) {
     const btnExistente = document.querySelector('.btn-zap-modal');
     if (!btnExistente) {
         const zapHtml = `
-    <a href="${linkZap}" target="_blank" class="btn-zap-modal">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <a href="${linkZap}" target="_blank" class="btn btn-success w-100 fw-bold py-2 mt-2 d-flex align-items-center justify-content-center gap-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px;">
         Pedir no Zap
     </a>`;
         modalFooter.insertAdjacentHTML('beforeend', zapHtml);
