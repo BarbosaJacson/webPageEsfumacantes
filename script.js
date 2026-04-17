@@ -57,14 +57,15 @@ window.abrirDetalhes = function(id) {
     
     // Injeta o botão apenas se ele não existir, evitando duplicação
     const btnExistente = document.querySelector('.btn-zap-modal');
-    if (!btnExistente) {
-        const zapHtml = `
-    <a href="${linkZap}" target="_blank" class="btn btn-success w-100 fw-bold py-2 mt-2 d-flex align-items-center justify-content-center gap-2">
+
+if (!btnExistente) {
+    const zapHtml = `
+    <a href="${linkZap}" target="_blank" class="btn btn-success btn-zap-modal w-100 fw-bold py-2 mt-2 d-flex align-items-center justify-content-center gap-2">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px;">
         Pedir no Zap
     </a>`;
-        modalFooter.insertAdjacentHTML('beforeend', zapHtml);
-    } else {
+    modalFooter.insertAdjacentHTML('beforeend', zapHtml);
+} else {
         btnExistente.href = linkZap;
     }
 
