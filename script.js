@@ -1,3 +1,4 @@
+const modalBootstrap = new bootstrap.Modal(document.getElementById('modal-produto'));
 // 1. DADOS DO CARDÁPIO
 const cardapio = [
     { id: 1, nome: "Dog Smoked Cream Cheese Parmesão com Molho Pesto", descricao: "Molho Cream Cheese Parmesão com Pesto.", descricaoLonga: "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g, 22cm), curada por 7 dias;\n- Molho Cream Cheese Artesanal: Iorgute natural e especiarias;\n- Parmesão: Queijo parmesão ralado;\n- Molho Pesto Artesanal;\n- Geleia de Tomate;\n- Pão tipo brioche artesanal: 130g.\nObs.: 100% natural!", preco: 30.90, imagem: "./assets/images/pesto.jpeg", disponivel: true },
@@ -69,14 +70,12 @@ if (!btnExistente) {
         btnExistente.href = linkZap;
     }
 
-    const modal = document.getElementById('modal-produto');
-    if (modal) modal.style.display = 'flex';
+    modalBootstrap.show();
 };
 
 // 4. CONTROLE DE FECHAMENTO
 window.fecharModal = function() {
-    const modal = document.getElementById('modal-produto');
-    if (modal) modal.style.display = 'none';
+    modalBootstrap.hide();
 };
 
 window.closePopup = function() {
