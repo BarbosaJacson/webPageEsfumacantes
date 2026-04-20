@@ -77,21 +77,37 @@ window.fecharModal = function() {
 };
 
 window.closePopup = function() {
-    document.getElementById('popup-vip').style.display = 'none';
+    const popup = document.getElementById('popup-vip'); // ID tem que ser igual ao HTML
+    if (popup) {
+        popup.style.display = 'none';
+    }
 };
 
 // 5. INICIALIZAÇÃO SEGURA
 window.onload = function() {
-    // Inicializa o modal do Bootstrap SOMENTE quando a página carregar
+    console.log("Página carregada. Iniciando scripts...");
+
+    // Inicializa o modal do Bootstrap
     const modalElement = document.getElementById('modal-produto');
     if (modalElement) {
         modalBootstrap = new bootstrap.Modal(modalElement);
+        console.log("Modal Bootstrap pronto.");
     }
     
+    // Chama a função para desenhar os lanches na tela
     renderizarCardapio();
 
+    // Faz o Pop-up VIP aparecer após 5 segundos
     setTimeout(function() {
         const popup = document.getElementById('popup-vip');
-        if (popup) popup.style.display = 'flex';
+        if (popup) {
+            popup.style.display = 'flex';
+            console.log("Pop-up VIP exibido.");
+        }
     }, 5000);
 };
+
+// 6. EVENTOS DE TECLADO (Opcional, mas bom ter)
+document.addEventListener('keydown', (e) => { 
+    if (e.key === 'Escape') fecharModal(); 
+});
