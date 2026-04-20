@@ -198,3 +198,22 @@ body {
     transform: scale(1.05);
     filter: brightness(0.9);
 }
+
+/* Container que envolve o preço e os botões no modal */
+.modal-body .d-flex.flex-column.flex-md-row {
+    align-items: center !important; /* Centraliza verticalmente o preço com os botões */
+    gap: 15px; /* Dá um respiro entre eles */
+}
+
+#modal-preco {
+    font-size: 1.5rem !important; /* Tamanho ideal para não atropelar os botões */
+    line-height: 1;
+    margin-bottom: 0 !important;
+}
+
+/* Ajuste nos botões para ficarem mais compactos no Modal */
+#modal-footer .btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    white-space: nowrap; /* Impede que o texto do botão quebre em duas linhas */
+}

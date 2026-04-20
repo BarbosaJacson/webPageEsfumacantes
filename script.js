@@ -31,7 +31,7 @@ function renderizarCardapio() {
                             <h5 class="card-title fw-bold text-dark" style="font-size: 1.1rem;">${produto.nome}</h5>
                             <p class="card-text text-muted flex-grow-1" style="font-size: 0.85rem;">${produto.descricao}</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
-                                <span class="fs-5 fw-bold text-dark">R$ ${Number(produto.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                                <span class="fs-4 fw-bold text-dark">R$ ${Number(produto.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
                                 <button class="btn btn-danger rounded-circle shadow-sm d-flex align-items-center justify-content-center" 
                                         onclick="abrirDetalhes(${produto.id})" style="width: 40px; height: 40px;">+</button>
                             </div>
