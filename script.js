@@ -14,20 +14,26 @@ const cardapio = [
 function renderizarCardapio() {
     const vitrine = document.getElementById('vitrine-produtos');
     if (!vitrine) return;
+    
+    // Limpa e prepara o container para o Grid do Bootstrap
     vitrine.innerHTML = '';
+    vitrine.className = "row g-4 justify-content-center"; // g-4 dá o espaçamento entre cards
+
     cardapio.forEach(produto => {
         if (produto.disponivel) {
             vitrine.innerHTML += `
-                <div class="product-card">
-                    <div class="product-img-container">
-                        <img src="${produto.imagem}" alt="${produto.nome}" class="product-img">
-                    </div>
-                    <div class="product-info">
-                        <h3>${produto.nome}</h3>
-                        <p>${produto.descricao}</p>
-                        <div class="product-footer">
-                            <span class="price">R$ ${Number(produto.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
-                            <button class="btn btn-danger rounded-circle fw-bold" onclick="abrirDetalhes(${produto.id})">+</button>
+                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                    <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden" style="width: 100%; max-width: 350px;">
+                        <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title fw-bold text-dark">${produto.nome}</h5>
+                            <p class="card-text text-muted flex-grow-1" style="font-size: 0.9rem;">${produto.descricao}</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="fs-5 fw-bold text-dark">R$ ${Number(produto.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                                <button class="btn btn-danger rounded-circle shadow-sm d-flex align-items-center justify-content-center" 
+                                        onclick="abrirDetalhes(${produto.id})" 
+                                        style="width: 40px; height: 40px;">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>`;
