@@ -1,5 +1,14 @@
 // Variável global para o controle do Modal
 let modalBootstrap;
+// Adicione este bloco no topo do seu script.js ou na sua função de clique
+document.querySelectorAll('.nav-link').forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove a classe 'active' de todos os botões
+        document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+        // Adiciona apenas no botão clicado
+        this.classList.add('active');
+    });
+});
 
 // 1. DADOS DO CARDÁPIO (Mantive seus dados)
 const cardapio = [

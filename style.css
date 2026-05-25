@@ -14,7 +14,9 @@ body {
 }
 .main-header {
     position: relative; /* O pai agora é o header inteiro */
+    padding-bottom: 20px; /* Espaço para o logo não cortar o fim do header */
     width: 100%;
+    padding-bottom: 20 !important;
 }
 .banner-container {
     width: 100%;
@@ -32,11 +34,11 @@ body {
 
 .logo-holder {
     position: absolute;
-    bottom: 110px;
-    left: 40px; /* Alinhado à esquerda como no iFood */
-    z-index: 999;
+    bottom: -35px; /* Ajuste para ele ficar metade dentro e metade fora do header */
+    margin-left: 20px;   /* Ajuste para alinhar com o padding da página */
+    z-index: 10;
+    width: 120px;       /* Tamanho fixo para não distorcer */
 }
-
 .logo-circle {
     width: 200px; /* Tamanho que você escolheu */
     height: 200px;
@@ -61,6 +63,53 @@ body {
     transform: scale(1.1); /* Leve zoom para destacar a logo */
     
 }
+.nav-tabs .nav-link {
+    border: 1px solid #dee2e6;
+    border-radius: 10px 10px 0 0; /* Arredonda só o topo */
+    margin-right: 5px;
+    background-color: #f8f9fa; /* Cor de fundo da aba inativa */
+}
+
+.nav-tabs .nav-link.active {
+    background-color: white !important; /* A aba ativa parece "aberta" */
+    border-bottom: 2px solid white !important; /* Conecta com o conteúdo abaixo */
+    color: #dc3545 !important;
+    border-bottom-color: white !important;
+    margin-bottom: -1px; /* Faz a aba sobrepor a linha do conteúdo */
+}
+/* Ajuste fino para o container das abas */
+.nav-tabs {
+    margin-top: 10px !important; /* Ajuste aqui para subir ou descer */
+    margin-bottom: 20px !important;
+    border-bottom: none !important; /* Remove aquela linha padrão do Bootstrap */
+}
+/* 2. O truque para "encolher" o espaço vazio */
+#pills-tab {
+    margin-top: auto !important; 
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Adicionamos uma margem superior negativa leve se precisar subir mais */
+    padding-top: 10px; 
+}
+
+/* 3. Estilo dos botões das abas */
+.nav-tabs .nav-link {
+    border: 1px solid #dee2e6;
+    border-radius: 8px 8px 0 0;
+    color: #dc3545;
+    font-weight: bold;
+    padding: 8px 16px;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #dc3545 !important;
+    color: white !important;
+    border-color: #dc3545 !important;
+}
+
 /* Estilo do Pop-up Overlay */
 .popup-overlay {
     position: fixed;
@@ -93,15 +142,33 @@ body {
 }
 
 .business-info {
-    padding: 50px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px; /* Ajuste para o tamanho que achar ideal da faixa */
     background: #fff;
-    margin-top: 0; /* Garante que o branco grude na imagem */
-    border-top: 1px solid #eee; /* Leve separação */
+    padding: 20px 20px 0 20px;
+    border-top: 1px solid #eee;
+    align-items: center; 
+    text-align: center;
+    position: relative;
 }
 
+/* 2. Garante que o H1 apareça e tenha o estilo certo */
 .business-info h1 {
-    margin: 0;
+    color: #333 !important;      /* Garante cor escura para aparecer */
     font-size: 24px;
+    margin: 0 0 10px 0;          /* Espaço abaixo do título */
+    display: block !important;   /* Força a exibição */
+}
+.description, .status-row {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* 3. Ajuste fino do resto do texto */
+.description, .status-row {
+    color: #666;
+    margin-bottom: 10px;
 }
 
 .description {
@@ -126,6 +193,8 @@ body {
     margin: 40px 0 30px;
     font-size: 24px;
     font-weight: bold;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
 }
 
 @keyframes fadeIn {
