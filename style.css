@@ -83,27 +83,30 @@ body {
     margin-bottom: 20px !important;
     border-bottom: none !important; /* Remove aquela linha padrão do Bootstrap */
 }
-/* 2. O truque para "encolher" o espaço vazio */
+
+/* 2. AS ABAS: Remove margens bobas e força o encaixe perfeito na base */
 #pills-tab {
-    margin-top: auto !important; 
-    margin-bottom: 0 !important;
+    margin-top: 20px !important; /* Dá um respiro saudável do texto descritivo */
+    margin-bottom: 0 !important; /* Zera a margem de baixo para colar na linha da div */
+    padding: 0 !important;
     border-bottom: none !important;
     width: 100%;
     display: flex;
     justify-content: center;
-    /* Adicionamos uma margem superior negativa leve se precisar subir mais */
-    padding-top: 10px; 
+    align-items: flex-end; /* Garante o alinhamento na base */
 }
-
 /* 3. Estilo dos botões das abas */
+/* 3. OS BOTÕES DAS ABAS: Ajuste para remover qualquer comportamento estranho */
 .nav-tabs .nav-link {
     border: 1px solid #dee2e6;
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 0 0; /* Arredondado só no topo */
     color: #dc3545;
     font-weight: bold;
     padding: 8px 16px;
+    margin: 0 4px -1px 4px; /* O -1px faz a aba "casar" certinho com o fim do bloco branco */
+    background-color: #f8f9fa;
+    transition: all 0.2s ease;
 }
-
 .nav-tabs .nav-link.active {
     background-color: #dc3545 !important;
     color: white !important;
@@ -141,16 +144,18 @@ body {
     color: #999;
 }
 
+/* 1. O CONTAINER PAI: Transforma em Flexbox vertical e empurra o que está dentro */
 .business-info {
     display: flex;
     flex-direction: column;
-    min-height: 220px; /* Ajuste para o tamanho que achar ideal da faixa */
+    min-height: 180px; /* Reduzi um pouco para ficar mais proporcional */
     background: #fff;
-    padding: 20px 20px 0 20px;
+    padding: 24px 20px 0 20px; /* Zero de padding na base para a aba colar na borda */
     border-top: 1px solid #eee;
     align-items: center; 
     text-align: center;
     position: relative;
+    justify-content: space-between; /* CRITICAL: Empurra o h1/texto para o topo e as abas para a base */
 }
 
 /* 2. Garante que o H1 apareça e tenha o estilo certo */
