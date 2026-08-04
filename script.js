@@ -1,11 +1,9 @@
 // Variável global para o controle do Modal
 let modalBootstrap;
-// Adicione este bloco no topo do seu script.js ou na sua função de clique
+
 document.querySelectorAll('.nav-link').forEach(button => {
     button.addEventListener('click', function() {
-        // Remove a classe 'active' de todos os botões
         document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
-        // Adiciona apenas no botão clicado
         this.classList.add('active');
     });
 });
@@ -27,7 +25,6 @@ function renderizarCardapio() {
     if (!vitrine) return;
     
     vitrine.innerHTML = '';
-    // Adiciona as classes de linha do Bootstrap
     vitrine.className = "row g-4 justify-content-center";
 
     cardapio.forEach(produto => {
@@ -65,7 +62,7 @@ window.abrirDetalhes = function(id) {
     const textoZap = encodeURIComponent(`Olá! Gostaria de pedir o lanche: ${produto.nome}`);
     const linkZap = `https://wa.me/5575999240161?text=${textoZap}`;
 
-    // Atualiza ou cria o botão do Zap
+    
     let btnZap = document.querySelector('.btn-zap-modal');
     if (!btnZap) {
         const zapHtml = `
@@ -92,7 +89,7 @@ window.closePopup = function() {
     }
 };
 
-// 5. INICIALIZAÇÃO SEGURA
+
 window.onload = function() {
     console.log("Página carregada. Iniciando scripts...");
 
@@ -116,7 +113,7 @@ window.onload = function() {
     }, 5000);
 };
 
-// 6. EVENTOS DE TECLADO (Opcional, mas bom ter)
+// 6. EVENTOS DE TECLADO (Opcional)
 document.addEventListener('keydown', (e) => { 
     if (e.key === 'Escape') fecharModal(); 
 });
