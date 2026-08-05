@@ -2,11 +2,18 @@
 let modalBootstrap;
 
 document.querySelectorAll('.nav-link').forEach(button => {
-    button.addEventListener('click', function() {
-        document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
-    });
+button.addEventListener('click', function(e) {
+document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+this.classList.add('active');
+const categoriaClicada = e.target.innerText;
+const vitrine = document.getElementById('vitrine-produtos');
+if (categoriaClicada !== 'Todos'&& categoriaClicada !== 'Hot Dogs') {
+    vitrine.innerHTML = `<h2 class="text-center text-muted mt-5">Em breve, teremos ${categoriaClicada}!</h2>`;
+} else if (categoriaClicada === 'Todos'|| categoriaClicada === 'Hot Dogs') {    
+    renderizarCardapio();}
 });
+});
+
 
 // 1. DADOS DO CARDÁPIO (Mantive seus dados)
 const cardapio = [
@@ -117,3 +124,4 @@ window.onload = function() {
 document.addEventListener('keydown', (e) => { 
     if (e.key === 'Escape') fecharModal(); 
 });
+
