@@ -21,10 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const categoriaClicada = e.target.innerText;
 const vitrine = document.getElementById('vitrine-produtos');
-if (categoriaClicada !== 'Todos'&& categoriaClicada !== 'Hot Dogs') {
+if (categoriaClicada !== 'Todos' && categoriaClicada !== 'Hot Dogs' && categoriaClicada !== 'Sanduíches') {
     vitrine.innerHTML = `<h2 class="text-center text-muted mt-5">Em breve, teremos ${categoriaClicada}!</h2>`;
-} else  {    
-    renderizarCardapio(categoriaClicada);}
+} else {   
+    renderizarCardapio(categoriaClicada);
+}
 });
 });
 });
@@ -38,7 +39,7 @@ function renderizarCardapio(categoriaSelecionada = 'Todos') {
     const produtosFiltrados = cardapio.filter(produto => {if (categoriaSelecionada === 'Todos') return true; return produto.categoria === categoriaSelecionada;});
     vitrine.className = "row g-4 justify-content-center";
 
-    cardapio.forEach(produto => {
+    produtosFiltrados.forEach(produto => {
         if (produto.disponivel) {
             vitrine.innerHTML += `
                 <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">

@@ -1,5 +1,4 @@
 [
-    
 { 
     "id": 1, 
     "categoria": "Hot Dogs",
@@ -63,5 +62,16 @@
         "descricaoLonga": "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g);\n- Geleia de Abacaxi Apimentada;\n- Pão tipo brioche artesanal.\nObs.: 100% natural!", 
         "preco": 29.90, "imagem": "./assets/images/Apimentado.jpeg", 
         "disponivel": true 
+},
+{       "id": 8, 
+        "categoria": "Sanduíches", 
+        "nome": "Pulled Pork", 
+        "descricao": "Sanduíche de Porco Desfiado com Molho Barbecue.", 
+        "descricaoLonga": "Produzido Artesanalmente:\n- Carne suína defumada (≅ 100g), curada por 7 dias;\n- Molho Barbecue Artesanal de maçã: Caldo de costela e especiarias;\n- Parmesão: Queijo parmesão ralado;\n- Molho Pesto Artesanal;\n- Geleia de Abacaxi;\n- Pão tipo brioche artesanal: 18 cm com 130g.\nObs.: 100% natural!", 
+        "preco": 31.90, 
+        "imagem": "./assets/images/pulled.jpg", 
+        "disponivel": true
+
 }
+
 ]
