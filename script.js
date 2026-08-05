@@ -1,37 +1,41 @@
 // Variável global para o controle do Modal
 let modalBootstrap;
+let cardapio = [];
 
-document.querySelectorAll('.nav-link').forEach(button => {
-button.addEventListener('click', function(e) {
-document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
-this.classList.add('active');
+async function carregarCardapio() {
+    try {
+        const response = await fetch('./cardapio.json');
+        cardapio = await response.json();
+        renderizarCardapio('Todos'); // Renderiza o cardápio após o carregamento
+    } catch (error) {
+        console.error('Erro ao carregar o cardápio:', error);
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    carregarCardapio();
+
+    document.querySelectorAll('.nav-link').forEach(button => {
+        button.addEventListener('click', function(e) {
+            document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
 const categoriaClicada = e.target.innerText;
 const vitrine = document.getElementById('vitrine-produtos');
 if (categoriaClicada !== 'Todos'&& categoriaClicada !== 'Hot Dogs') {
     vitrine.innerHTML = `<h2 class="text-center text-muted mt-5">Em breve, teremos ${categoriaClicada}!</h2>`;
-} else if (categoriaClicada === 'Todos'|| categoriaClicada === 'Hot Dogs') {    
-    renderizarCardapio();}
+} else  {    
+    renderizarCardapio(categoriaClicada);}
 });
 });
-
-
-// 1. DADOS DO CARDÁPIO (Mantive seus dados)
-const cardapio = [
-    { id: 1, nome: "Dog Smoked Cream Cheese Parmesão com Molho Pesto", descricao: "Molho Cream Cheese Parmesão com Pesto.", descricaoLonga: "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g, 22cm), curada por 7 dias;\n- Molho Cream Cheese Artesanal: Iorgute natural e especiarias;\n- Parmesão: Queijo parmesão ralado;\n- Molho Pesto Artesanal;\n- Geleia de Tomate;\n- Pão tipo brioche artesanal: 130g.\nObs.: 100% natural!", preco: 30.90, imagem: "./assets/images/pesto.jpeg", disponivel: true },
-    { id: 2, nome: "Dog Smoked Cream Cheese Parmesão", descricao: "Molho Cream Cheese com Parmesão e bacon.", descricaoLonga: "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g, 22cm), curada por 7 dias;\n- Molho Cream Cheese Artesanal;\n- Parmesão: Queijo parmesão ralado;\n- Bacon Artesanal;\n- Pão tipo brioche artesanal: 130g.\nObs.: 100% natural!", preco: 29.90, imagem: "./assets/images/Parmesão.jpeg", disponivel: true },
-    { id: 3, nome: "Dog Smoked Romeu e Julieta com Bacon", descricao: "Molho Cream Cheese de Parmesão, Geleia de Tomate e bacon crocante.", descricaoLonga: "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g);\n- Cream Cheese e Parmesão;\n- Bacon Artesanal;\n- Geleia de Tomate;\n- Pão tipo brioche artesanal.\nObs.: 100% natural!", preco: 29.90, imagem: "./assets/images/RJBacon.jpeg", disponivel: true },
-    { id: 4, nome: "Dog Smoked Cream Cheese Gorgonzola", descricao: "Molho Cream Cheese com Gorgonzola e bacon.", descricaoLonga: "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g);\n- Gorgonzola e Bacon;\n- Pão tipo brioche artesanal.\nObs.: 100% natural!", preco: 29.90, imagem: "./assets/images/Gorgonzola.jpeg", disponivel: true },
-    { id: 5, nome: "Dog Smoked Barbecue", descricao: "Molho Barbecue de maçã e bacon.", descricaoLonga: "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g);\n- Molho Barbecue Artesanal;\n- Bacon;\n- Pão tipo brioche artesanal.\nObs.: 100% natural!", preco: 29.90, imagem: "./assets/images/Barbecue.jpeg", disponivel: true },
-    { id: 6, nome: "Dog Smoked Romeu e Julieta", descricao: "Molho Cream Cheese com Geleia de Tomate.", descricaoLonga: "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g);\n- Cream Cheese e Geleia de Tomate;\n- Pão tipo brioche artesanal.\nObs.: 100% natural!", preco: 29.90, imagem: "./assets/images/RJ.jpeg", disponivel: true },
-    { id: 7, nome: "Dog Smoked Romeu e Julieta Apimentado", descricao: "Molho Cream Cheese com Geleia de Abacaxi.", descricaoLonga: "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g);\n- Geleia de Abacaxi Apimentada;\n- Pão tipo brioche artesanal.\nObs.: 100% natural!", preco: 29.90, imagem: "./assets/images/Apimentado.jpeg", disponivel: true }
-];
+});
 
 // 2. RENDERIZAR VITRINE (Usando Grid do Bootstrap)
-function renderizarCardapio() {
+function renderizarCardapio(categoriaSelecionada = 'Todos') {
     const vitrine = document.getElementById('vitrine-produtos');
     if (!vitrine) return;
     
     vitrine.innerHTML = '';
+    const produtosFiltrados = cardapio.filter(produto => {if (categoriaSelecionada === 'Todos') return true; return produto.categoria === categoriaSelecionada;});
     vitrine.className = "row g-4 justify-content-center";
 
     cardapio.forEach(produto => {
@@ -66,7 +70,7 @@ window.abrirDetalhes = function(id) {
     document.getElementById('modal-descricaoLonga').innerText = produto.descricaoLonga;
 
     const modalFooter = document.getElementById('modal-footer');
-    const textoZap = encodeURIComponent(`Olá! Gostaria de pedir o lanche: ${produto.nome}`);
+    const textoZap = encodeURIComponent(`Olá! Gostaria de pedir um lanche: ${produto.nome}`);
     const linkZap = `https://wa.me/5575999240161?text=${textoZap}`;
 
     
