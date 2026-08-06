@@ -74,6 +74,27 @@ async function carregarHorarios() {
     } else {
         console.warn("ALERTA: Elemento #btn-status ou .texto-status não foi encontrado no DOM.");
     }
+    // Injeta as faixas de horário ativas no Modal
+const listaHorarios = document.getElementById('lista-horarios');
+
+if (listaHorarios && horarios.programacao) {
+    // Filtra apenas os horários em que a loja fica aberta
+    const faixasAbertas = horarios.programacao.filter(f => f.aberto);
+
+    // Limpa a lista antes de preencher
+    listaHorarios.innerHTML = '';
+
+    // Cria os itens da lista usando classes nativas do Bootstrap
+    faixasAbertas.forEach(faixa => {
+        const item = document.createElement('li');
+        item.className = 'list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-2';
+        item.innerHTML = `
+            <span class="fw-semibold text-secondary">Diariamente</span>
+            <span class="badge bg-success rounded-pill px-3 py-2 fs-6">${faixa.inicio} às ${faixa.fim}</span>
+        `;
+        listaHorarios.appendChild(item);
+    });
+}
 } 
 
 
