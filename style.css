@@ -291,3 +291,24 @@ body {
     font-size: 0.95rem;
     white-space: nowrap; /* Impede que o texto do botão quebre em duas linhas */
 }
+/* Estilo quando estiver ABERTO (Verde) */
+.badge-open {
+    background-color: #198754 !important; /* Verde Bootstrap */
+    color: #ffffff !important;
+    border: none !important;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estilo quando estiver FECHADO (Vermelho) */
+.badge-closed {
+    background-color: #dc3545 !important; /* Vermelho Bootstrap */
+    color: #ffffff !important;
+    border: none !important;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}

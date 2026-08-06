@@ -44,8 +44,10 @@
             <h1>Defumados Esfumaçantes</h1>
             <p class="description">Lanches Artesanais Saudáveis</p>
             <div class="status-row">
-                <span class="badge-open">Aberto agora</span>
-                <span class="delivery-info">• Entrega em 30-45 min</span>
+                <button id="btn-status" class="badge-status" data-bs-toggle="modal" data-bs-target="#modalHorarios">
+        <span class="texto-status"></span>
+                </button>
+                <span class="delivery-info">• Entrega negociada</span>
             </div>
             
             <ul class="nav nav-tabs border-bottom-0" id="pills-tab" role="tablist">
@@ -126,6 +128,23 @@
         target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
+<!-- Modal de Horários -->
+<div class="modal fade" id="modalHorarios" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 border-0 shadow">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold">🕒 Horários de Funcionamento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <ul id="lista-horarios" class="list-group list-group-flush">
+          <!-- Injeção dos horarios.json pelo Js -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>

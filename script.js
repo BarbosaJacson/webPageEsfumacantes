@@ -30,6 +30,53 @@ if (categoriaClicada !== 'Todos' && categoriaClicada !== 'Hot Dogs' && categoria
 });
 });
 
+let horarios = {};
+
+async function carregarHorarios() {
+    try {
+        const response = await fetch('./horarios.json');
+        horarios = await response.json();
+        console.log("Horários carregados:", horarios);
+    } catch (error) {
+        console.error('Erro ao carregar os horários:', error);
+        return; // interrompe se der erro na busca do arquivo
+    }
+
+    const agora = new Date();
+    const horas = String(agora.getHours()).padStart(2, '0');
+    const minutos = String(agora.getMinutes()).padStart(2, '0');
+    const horaAtual = `${horas}:${minutos}`;
+    console.log("4. Hora atual calculada:", horaAtual);
+
+    const faixas = horarios.programacao;
+    console.log("5. Faixas encontradas na chave programacao:", faixas);
+
+    const faixaAtual = faixas ? faixas.find(f => horaAtual >= f.inicio && horaAtual <= f.fim) : null;
+    console.log("6. Faixa correspondente encontrada:", faixaAtual);
+
+    const estaAberto = faixaAtual ? faixaAtual.aberto : false;
+    console.log("7. Status final (estaAberto):", estaAberto);
+
+    const btnStatus = document.getElementById('btn-status');
+    const textoStatus = btnStatus ? btnStatus.querySelector('.texto-status') : null;
+
+    if (btnStatus && textoStatus) {
+        if (estaAberto) {
+            btnStatus.classList.remove('badge-closed');
+            btnStatus.classList.add('badge-open');
+            textoStatus.innerText = 'Aberto agora';
+        } else {
+            btnStatus.classList.remove('badge-open');
+            btnStatus.classList.add('badge-closed');
+            textoStatus.innerText = 'Fechado agora';
+        }
+        console.log("8. DOM atualizado com sucesso!");
+    } else {
+        console.warn("ALERTA: Elemento #btn-status ou .texto-status não foi encontrado no DOM.");
+    }
+} 
+
+
 // 2. RENDERIZAR VITRINE (Usando Grid do Bootstrap)
 function renderizarCardapio(categoriaSelecionada = 'Todos') {
     const vitrine = document.getElementById('vitrine-produtos');
@@ -104,8 +151,10 @@ window.closePopup = function() {
 
 window.onload = function() {
     console.log("Página carregada. Iniciando scripts...");
+    
 
     // Inicializa o modal do Bootstrap
+    carregarHorarios();
     const modalElement = document.getElementById('modal-produto');
     if (modalElement) {
         modalBootstrap = new bootstrap.Modal(modalElement);
@@ -129,4 +178,4 @@ window.onload = function() {
 document.addEventListener('keydown', (e) => { 
     if (e.key === 'Escape') fecharModal(); 
 });
-
+    

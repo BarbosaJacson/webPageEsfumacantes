@@ -1,0 +1,9 @@
+{ 
+  "nome": "programacao", 
+  "statusManual": null,
+  "programacao": [
+    { "inicio": "10:00", "fim": "23:59", "aberto": true },
+    { "inicio": "00:00", "fim": "04:00", "aberto": true },
+    { "inicio": "04:01", "fim": "09:59", "aberto": false }
+  ]
+}
