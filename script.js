@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const categoriaClicada = e.target.innerText;
 const vitrine = document.getElementById('vitrine-produtos');
-if (categoriaClicada !== 'Todos' && categoriaClicada !== 'Hot Dogs' && categoriaClicada !== 'Sanduíches') {
+if (categoriaClicada === 'Pizzas') {
     vitrine.innerHTML = `<h2 class="text-center text-muted mt-5">Em breve, teremos ${categoriaClicada}!</h2>`;
 } else {   
     renderizarCardapio(categoriaClicada);

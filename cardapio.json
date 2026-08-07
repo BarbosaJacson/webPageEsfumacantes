@@ -72,6 +72,16 @@
         "imagem": "./assets/images/pulled.jpg", 
         "disponivel": true
 
+},
+{       "id": 9, 
+        "categoria": "DogPizza", 
+        "nome": "Dog Mozzarella", 
+        "descricao": "Molho de tomate, cream cheese e mozzarella.", 
+        "descricaoLonga": "Produzido Artesanalmente:\n- Salsicha de Frango (≅ 100g);\n- Molho de tomate e molho cream cheese de parmesão;\n - Tomate, azeitona e óregano;\n- Pão tipo brioche artesanal 130 gramas.\nObs.: 100% natural!", 
+        "preco": 31.90, 
+        "imagem": "./assets/images/DogPizza.jpeg", 
+        "disponivel": true
+
 }
 
 ]
